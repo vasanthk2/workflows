@@ -1,0 +1,35 @@
+{
+  "type": "Microsoft.Logic/workflows",
+  "location": "eastus2",
+  "properties": {
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "actions": {
+        "Response": {
+          "inputs": {
+            "body": "\"message\": \"Hello BlueYonder BalaVasanth!\"",
+            "statusCode": 200
+          },
+          "runAfter": {},
+          "type": "Response"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "method": "GET"
+          }
+        }
+      }
+    }
+  }
+}
